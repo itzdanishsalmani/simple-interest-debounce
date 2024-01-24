@@ -10,29 +10,7 @@
     <input type="text" onchange="debounce()" id="rateOfReturn" placeholder="rate of return" ></input><br/>
     <input type="text" onchange="debounce()" id="time" placeholder="time" ></input><br/>
     <input type="text" onchange="debounce()" id="ans" placeholder="ans" ></input><br/> 
-
-    <script>
-        function getAns(){
-            const principal = document.getElementById("principal").value;
-            const rateOfReturn = document.getElementById("rateOfReturn").value;
-            const time = document.getElementById("time").value;
-
-            fetch("http://localhost:3000/?principal="+principal+"&rateOfReturn="+rateOfReturn+"&time="+time)
-                .then (function(response){
-                    response.text()
-                    .then (function(finalAns){
-                        document.getElementById("ans").value=finalAns;
-                    })
-                })
-        }
-
-        function debounce(){
-            let timeout;
-            clearTimeout(timeout);
-            timeout=setTimeout(function(){
-                getAns()
-            },100)
-        }
-    </script>
+   
+    <script src="script.js"></script>
 </body>
 </html>
